@@ -35,14 +35,19 @@ fi
 
 if [ ! -f $BUILD_DIR/Procfile ] && [ -d $BUILD_DIR/target ]; then
   cd $BUILD_DIR
-  for jarFile in $(find target -maxdepth 1 -name "*.jar" -type f); do
-    if is_spring_boot $BUILD_DIR; then
-      echo "default_process_types:"
-      echo "  web: java -Dserver.port=\$PORT \$JAVA_OPTS -jar $jarFile"
-    elif is_wildfly_swarm $BUILD_DIR; then
-      echo "default_process_types:"
-      echo "  web: java -Dswarm.http.port=\$PORT \$JAVA_OPTS -jar $jarFile"
-    fi
+  for jarFile in $(find target -maxdepth 1 -name "*.zip" -type f); do
+    mv $jarFile /opt/mule-standalone-3.9.0/apps/$jarFile
+
+    echo "default_process_types:"
+    echo "web: /opt/mule-standalone-3.9.0/bin/mule restart"
     break;
+    #if is_spring_boot $BUILD_DIR; then
+    #  echo "default_process_types:"
+    #  echo "  web: java -Dserver.port=\$PORT \$JAVA_OPTS -jar $jarFile"
+    #elif is_wildfly_swarm $BUILD_DIR; then
+    #  echo "default_process_types:"
+    #  echo "  web: java -Dswarm.http.port=\$PORT \$JAVA_OPTS -jar $jarFile"
+    #fi
+    #break;
   done
 fi
