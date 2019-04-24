@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #download https://repository-master.mulesoft.org/nexus/service/local/repositories/releases/content/org/mule/distributions/mule-standalone/3.9.0/mule-standalone-3.9.0.tar.gz
 
-download_mule() {
+install_mule() {
   local install_dir=${1}
   local cache_dir=${2}
 
