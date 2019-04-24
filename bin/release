@@ -39,7 +39,7 @@ if [ ! -f $BUILD_DIR/Procfile ] && [ -d $BUILD_DIR/target ]; then
     mv $jarFile /opt/mule-standalone-3.9.0/apps/$jarFile
 
     echo "default_process_types:"
-    echo "web: /opt/mule-standalone-3.9.0/bin/mule restart"
+    echo "web: $HOME/mule-standalone-3.9.0/bin/mule restart"
     break;
     #if is_spring_boot $BUILD_DIR; then
     #  echo "default_process_types:"
