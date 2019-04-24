@@ -8,19 +8,19 @@ install_mule() {
   let start=$(nowms)
   MULE_COMMON_BUILDPACK=${MULE_COMMON_BUILDPACK:-https://repository-master.mulesoft.org/nexus/service/local/repositories/releases/content/org/mule/distributions/mule-standalone/3.9.0/mule-standalone-3.9.0.tar.gz}
   
-  if [ ! -f $HOME/mule-standalone-3.9.0 ] ; then
+  if [ ! -f /tmp/mule-standalone-3.9.0 ] ; then
 
     echo -n " Downloading .... "
 
-    mkdir -p $HOME/mule-standalone-3.9.0/
-    curl --retry 3 --silent --location $MULE_COMMON_BUILDPACK | tar xzm -C $HOME/mule-standalone-3.9.0/ --strip-components=1
+    mkdir -p /tmp/mule-standalone-3.9.0/
+    curl --retry 3 --silent --location $MULE_COMMON_BUILDPACK | tar xzm -C /tmp/mule-standalone-3.9.0/ --strip-components=1
     chmod +x $HOME/mule-standalone-3.9.0/bin/mule
     chmod +w $HOME/mule-standalone-3.9.0/apps/
     chmod +w $HOME/mule-standalone-3.9.0/
 
   fi
 
-  export MULE_HOME=$HOME/mule-standalone-3.9.0/
+  export MULE_HOME=/tmp/mule-standalone-3.9.0/
 
   echo "Done"
 }
