@@ -8,7 +8,7 @@ install_mule() {
   let start=$(nowms)
   MULE_COMMON_BUILDPACK=${MULE_COMMON_BUILDPACK:-https://repository-master.mulesoft.org/nexus/service/local/repositories/releases/content/org/mule/distributions/mule-standalone/3.9.0/mule-standalone-3.9.0.tar.gz}
   
-  if [ ! -f /app/mule-standalone-3.9.0 ] ; then
+  if [ ! -d /app/mule-standalone-3.9.0 ] ; then
 
     echo -n " Downloading .... "
 
