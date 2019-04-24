@@ -26,17 +26,18 @@ has_postgres() {
 
 echo "---"
 
-if has_postgres $BUILD_DIR; then
-  cat <<EOF
-addons:
-  - heroku-postgresql
-EOF
-fi
+#if has_postgres $BUILD_DIR; then
+#  cat <<EOF
+#addons:
+#  - heroku-postgresql
+#EOF
+#fi
 
 if [ ! -f $BUILD_DIR/Procfile ] && [ -d $BUILD_DIR/target ]; then
   cd $BUILD_DIR
+  echo "-----> releasing"
   for jarFile in $(find target -maxdepth 1 -name "*.zip" -type f); do
-    mv $jarFile /opt/mule-standalone-3.9.0/apps/$jarFile
+    mv $jarFile /app/mule-standalone-3.9.0/apps/$jarFile
 
     echo "default_process_types:"
     echo "web: java -jar $jarFile"

@@ -1,5 +1,5 @@
 [buildpack]
-name = "Java"
+name = "Mule"
 
   [publish.Ignore]
   files = [
