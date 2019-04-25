@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 # bin/release <build-dir>
+echo "-----> Releasing $1"
 
 BUILD_DIR=$1
 
@@ -26,12 +27,12 @@ has_postgres() {
 
 echo "---"
 
-#if has_postgres $BUILD_DIR; then
-#  cat <<EOF
-#addons:
-#  - heroku-postgresql
-#EOF
-#fi
+if has_postgres $BUILD_DIR; then
+  cat <<EOF
+addons:
+  - heroku-postgresql
+EOF
+fi
 
 if [ ! -f $BUILD_DIR/Procfile ] && [ -d $BUILD_DIR/target ]; then
   cd $BUILD_DIR
