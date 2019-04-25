@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 # bin/release <build-dir>
-echo "-----> Releasing $1"
 
 BUILD_DIR=$1
 
@@ -31,7 +30,7 @@ if has_postgres $BUILD_DIR; then
   cat <<EOF
 addons:
 default_process_types:
-  web: ls -lha /app/
+  web: ls -lha /app/ && echo $1
 EOF
 fi
 
