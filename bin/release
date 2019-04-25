@@ -30,6 +30,8 @@ echo "---"
 if has_postgres $BUILD_DIR; then
   cat <<EOF
 addons:
+default_process_types:
+  web: ls -lha /app/
 EOF
 fi
 
@@ -38,8 +40,8 @@ if [ ! -f $BUILD_DIR/Procfile ] && [ -d $BUILD_DIR/target ]; then
   for jarFile in $(find target -maxdepth 1 -name "*.zip" -type f); do
     mv $jarFile /app/mule-standalone-3.9.0/apps/$jarFile
 
-    echo "default_process_types:"
-    echo "  web: ls -lha /app/"
+    #echo "default_process_types:"
+    #echo "  web: ls -lha /app/"
     break;
     #if is_spring_boot $BUILD_DIR; then
     #  echo "default_process_types:"
