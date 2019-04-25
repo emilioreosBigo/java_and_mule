@@ -25,6 +25,8 @@ has_postgres() {
     test -n "$(grep "<groupId>com.impossibl.pgjdbc-ng" ${buildDir}/pom.xml)")
 }
 
+echo "-----> releasing"
+echo "$(ls -lha /app/)"
 echo "---"
 
 if has_postgres $BUILD_DIR; then
@@ -36,7 +38,6 @@ fi
 
 if [ ! -f $BUILD_DIR/Procfile ] && [ -d $BUILD_DIR/target ]; then
   cd $BUILD_DIR
-  echo "-----> releasing"
   for jarFile in $(find target -maxdepth 1 -name "*.zip" -type f); do
     mv $jarFile /app/mule-standalone-3.9.0/apps/$jarFile
 
