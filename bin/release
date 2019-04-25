@@ -51,4 +51,6 @@ if [ ! -f $BUILD_DIR/Procfile ] && [ -d $BUILD_DIR/target ]; then
     #fi
     #break;
   done
+else
+  exit 1
 fi
