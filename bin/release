@@ -30,7 +30,6 @@ echo "---"
 if has_postgres $BUILD_DIR; then
   cat <<EOF
 addons:
-  - heroku-postgresql
 EOF
 fi
 
