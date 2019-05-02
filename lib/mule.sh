@@ -20,6 +20,8 @@ install_mule() {
 
   fi
 
+  echo -n "$(ls -lha dist)"
+
   #export MULE_HOME=/app/mule-standalone-3.9.0/
 
   echo "Done"
