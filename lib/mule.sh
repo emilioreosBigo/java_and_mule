@@ -20,7 +20,7 @@ install_mule() {
 
   fi
 
-  if [ ! -d $install_dir/vendor] ; then
+  if [ ! -d $install_dir/vendor ] ; then
     mkdir -p $install_dir/vendor/mule-standalone-3.9.0
   fi
 
