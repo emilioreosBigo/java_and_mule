@@ -24,7 +24,7 @@ install_mule() {
     mkdir -p $install_dir/vendor/mule-standalone-3.9.0
   fi
 
-  cp -r $cache_dir/mule-standalone-3.9.0/ $install_dir/vendor/mule-standalone-3.9.0/
+  cp -r $cache_dir/mule-standalone-3.9.0/ $install_dir/vendor/
   
   #export MULE_HOME=/app/mule-standalone-3.9.0/
 
