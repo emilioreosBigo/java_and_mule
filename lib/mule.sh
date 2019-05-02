@@ -4,7 +4,7 @@
 install_mule() {
   local install_dir=${1}
   local cache_dir=${2}
-  echo -n "-----> Installing Mule...$cache_dir"
+  echo -n "-----> Installing Mule...$install_dir"
   let start=$(nowms)
   MULE_COMMON_BUILDPACK=${MULE_COMMON_BUILDPACK:-https://repository-master.mulesoft.org/nexus/service/local/repositories/releases/content/org/mule/distributions/mule-standalone/3.9.0/mule-standalone-3.9.0.tar.gz}
   
@@ -20,6 +20,12 @@ install_mule() {
 
   fi
 
+  if [ ! -d $install_dir/vendor] ; then
+    mkdir -p $install_dir/vendor/mule-standalone-3.9.0
+  fi
+
+  cp -r $cache_dir/mule-standalone-3.9.0/ $install_dir/vendor/mule-standalone-3.9.0/
+  
   #export MULE_HOME=/app/mule-standalone-3.9.0/
 
   echo "Done"
