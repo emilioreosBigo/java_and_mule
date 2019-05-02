@@ -18,7 +18,7 @@ source <(curl -s --retry 3 -L $BUILDPACK_STDLIB_URL)
 
 export_env $ENV_DIR "." "JAVA_OPTS|JAVA_TOOL_OPTIONS"
 
-echo "-----> BuildDir: $BUILD_DIR $CACHE_DIR"
+echo "-----> BuildDir: $BUILD_DIR $CACHE_DIR $BP_DIR"
 
 install_jdk "${BUILD_DIR}" "${CACHE_DIR}"
 
