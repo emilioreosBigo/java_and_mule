@@ -30,6 +30,9 @@ if has_postgres $BUILD_DIR; then
   cat <<EOF
 addons:
 default_process_types:
+  release: chmod 666 -R /app/vendor/mule-standalone-3.9.0/
+  release: chmod 555 -R /app/vendor/mule-standalone-3.9.0/bin
+  release: touch /app/verified.txt
   web: /app/vendor/mule-standalone-3.9.0/bin/mule start
 EOF
 fi
