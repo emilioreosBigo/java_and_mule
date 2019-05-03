@@ -24,10 +24,10 @@ install_mule() {
     mkdir -p $install_dir/vendor/mule-standalone-3.9.0
   fi
 
-  mkdir -p $install_dir/.mule/
+  #mkdir -p $install_dir/.mule/
   cp -r $cache_dir/mule-standalone-3.9.0/ $install_dir/vendor/
-  echo "chmod -R 777 ${install_dir}/vendor/mule-standalone-3.9.0/" >> $install_dir/.mule/deploy
-  echo "/app/vendor/mule-standalone-3.9.0/bin/mule start" >> $install_dir/.mule/deploy
+  #echo "chmod -R 777 ${install_dir}/vendor/mule-standalone-3.9.0/" >> $install_dir/.mule/deploy
+  #echo "/app/vendor/mule-standalone-3.9.0/bin/mule start" >> $install_dir/.mule/deploy
   
   export MULE_HOME=$install_dir/vendor/mule-standalone-3.9.0/
 
