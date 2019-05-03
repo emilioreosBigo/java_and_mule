@@ -31,6 +31,4 @@ if has_maven_wrapper $BUILD_DIR; then
   rm -rf $BUILD_DIR/.m2
 fi
 
-echo "      $(ls -lha ${BUILD_DIR}/dist)"
-
 echo "-----> Compiled"

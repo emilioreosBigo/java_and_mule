@@ -30,3 +30,8 @@ install_mule() {
 
   echo "Done"
 }
+
+deploy_mule_app(){
+  local build_dir=${1}
+  cp $build_dir/target/*.zip $build_dir/vendor/mule-standalone-3.9.0/apps/
+}
