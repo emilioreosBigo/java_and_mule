@@ -31,4 +31,6 @@ if has_maven_wrapper $BUILD_DIR; then
   rm -rf $BUILD_DIR/.m2
 fi
 
+deploy_mule_app "${BUILD_DIR}"
+
 echo "-----> Compiled"
