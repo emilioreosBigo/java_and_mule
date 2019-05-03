@@ -14,11 +14,12 @@ install_mule() {
 
     mkdir -p $cache_dir/mule-standalone-3.9.0/
     curl --retry 3 --silent --location $MULE_COMMON_BUILDPACK | tar xzm -C $cache_dir/mule-standalone-3.9.0/ --strip-components=1
+  fi
     chmod 555 $cache_dir/mule-standalone-3.9.0/bin/mule
     chmod 666 $cache_dir/mule-standalone-3.9.0/apps/
     chmod 666 -R $cache_dir/mule-standalone-3.9.0/
 
-  fi
+  #fi
 
   if [ ! -d $install_dir/vendor ] ; then
     mkdir -p $install_dir/vendor/mule-standalone-3.9.0
